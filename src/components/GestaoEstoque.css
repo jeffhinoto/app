@@ -1,0 +1,211 @@
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    color: #fff;
+    background-color: #121212;
+    position: inherit;
+    overflow: hidden;
+    padding: 1px 16px;
+    min-height: 100vh; /* Garante que o componente ocupe pelo menos 100% da altura da tela */
+    min-width: (100vw-200px);
+    height: 100%; /* Define a altura do componente como 100% */
+    width: 100%; /* Define a largura do componente como 100% */
+    box-sizing: border-box; /* Mantém a largura e altura do componente incluindo padding e borda */
+  }
+  
+  
+  .dashboard h2 {
+    margin: 0;
+  }
+  .content-container{
+    background: #333;
+    width: 100%;
+  }
+  .dashboard .filter-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    font-size: large;
+  }
+  
+  .dashboard .filter-container select,
+  .dashboard .filter-container input[type="text"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #555;
+    max-width: 400px;
+    width: 100%;
+    margin-right: 10px;
+  }
+  
+  .dashboard .product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 0 20px;
+    overflow-y: auto;
+    flex: 1;
+    align-content: flex-start;
+  }
+  
+  .dashboard .product-card {
+    width: 180px;
+    height: 150px;
+    padding: 10px;
+    background-color: #444;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .dashboard .product-card h3 {
+    margin: 0;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    text-align: center;
+  }
+  
+  .dashboard .product-card p {
+    margin: 0;
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+  }
+  
+  .dashboard .product-card button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  
+  .dashboard .error-message {
+    margin-top: 20px;
+    color: red;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .dashboard .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .dashboard .modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #222;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .dashboard .modal h2 {
+    margin: 0;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .dashboard .modal .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    align-items: center;
+  }
+  
+  .dashboard .modal label {
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  
+  .dashboard .modal input[type="text"],
+  .dashboard .modal input[type="number"],
+  .dashboard .modal input[type="date"],
+  .dashboard .modal select {
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #555;
+    width: 100%;
+  }
+  
+  .dashboard .modal button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .dashboard .modal .confirm-delete-modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .dashboard .modal .confirm-delete-modal button {
+    margin-right: 10px;
+  }
+  
+  .dashboard .new-product-button {
+    color: #fff;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(15, 112, 39);
+  }
+  
+  .dashboard .toast-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
+  .app-container{
+    display: flex;
+    width: 100vw;
+  }
+  @media screen and (max-width: 600px) {
+    .dashboard .filter-container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .dashboard .filter-container select,
+    .dashboard .filter-container input[type="text"] {
+      max-width: none;
+      width: calc(100% - 20px);
+      margin-bottom: 10px;
+    }
+    
+    .dashboard .product-card {
+      width: calc(50% - 20px);
+    }
+  }
+  .sim{
+    color: white;
+    background-color: rgb(15, 112, 39);
+  }
+  .nao{
+    color: white;
+    background-color: rgb(131, 4, 4);
+  }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { firestore } from '../firebase';
-import { collection, getDocs, doc, updateDoc, arrayRemove } from 'firebase/firestore';
+import { collection, getDocs, doc, updateDoc, getDoc } from 'firebase/firestore';
 import './PaginaVenda.css';
 
 const PaginaVenda = () => {
@@ -84,28 +84,18 @@ const PaginaVenda = () => {
 
   const handleConfirmarVenda = async () => {
     try {
-      const batch = firestore.batch();
-      Object.entries(carrinho).forEach(([produtoId, item]) => {
-        const produtoRef = doc(firestore, 'produtos', produtoId);
-        batch.update(produtoRef, { quantidade: firestore.FieldValue.increment(-item.quantidade) });
-        console.log("testando log"+batch.update)
+      Object.values(carrinho).forEach(async (item) => {
+        const produtoRef = doc(firestore, 'produtos', item.id);
+        const document = await getDoc(produtoRef)
+        const data = await document.data()
+        await updateDoc(produtoRef, { quantidade: data.quantidade - item.quantidade });
       });
-      await batch.commit();
       console.log('Venda confirmada!');
       setModalAberto(false);
     } catch (error) {
       console.error('Erro ao confirmar venda:', error);
     }
   };
-
-  const handleModalClose = () => {
-    setModalAberto(false);
-  };
-
-  useEffect(() => {
-    const total = Object.values(carrinho).reduce((acc, item) => acc + (item.preco * item.quantidade), 0);
-    setValorPago(total);
-  }, [carrinho]);
 
   return (
     <div className="pagina-venda">
@@ -130,7 +120,7 @@ const PaginaVenda = () => {
         <ul>
           {Object.values(carrinho).map(item => (
             <li key={item.id}>
-              <span className='txt'>{item.nome}</span>
+              <span>{item.nome}</span>
               <button className='remover' onClick={() => removeFromCart(item.id)}>X</button>
               <button className='diminuir' onClick={() => decreaseQuantity(item.id)}>-</button>
               <span className="quantidade">{item.quantidade}</span>
@@ -144,7 +134,6 @@ const PaginaVenda = () => {
       {modalAberto && (
         <div className="modal">
           <div className="modal-content">
-            <button className="close-modal" onClick={handleModalClose}>X</button>
             <h2>Confirmação de Venda</h2>
             <div className="form-group">
               <label htmlFor="metodoPagamento">Método de Pagamento:</label>
@@ -156,10 +145,12 @@ const PaginaVenda = () => {
                 <option value="credito">Cartão de Crédito</option>
               </select>
             </div>
+            {metodoPagamento && (
             <div className="form-group">
               <label htmlFor="valorPago">Valor Pago:</label>
               <input type="number" id="valorPago" value={valorPago} onChange={(e) => setValorPago(e.target.value)} />
             </div>
+            )}
             <div className="form-group">
               <button onClick={handleConfirmarVenda} disabled={!metodoPagamento}>Confirmar Venda</button>
             </div>

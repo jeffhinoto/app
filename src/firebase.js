@@ -4,6 +4,7 @@ import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 
 
+
 const firebaseConfig = {
     apiKey: "AIzaSyCohyOHfHYCms8ZOE1ln5gLsG_uXZRne-w",
     authDomain: "tribos-caixa.firebaseapp.com",
@@ -18,4 +19,4 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const firestore = getFirestore(app);
 
-export { auth, firestore };
+export { auth, firestore, app as firebase };

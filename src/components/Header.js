@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { FiSettings } from 'react-icons/fi';
-import { MdSpaceDashboard } from "react-icons/md";
 import { FaShop } from "react-icons/fa6";
 import avatarImg from '../assets/logo.webp';
 import './header.css';
@@ -38,11 +37,6 @@ const Header = () => {
         <div>
           <img src={avatarImg} alt="Foto do usuário" />
         </div>
-
-        <Link className='Dashboard' to="/dashboard">
-          <MdSpaceDashboard color="#FFF" size={24} />
-          <span>Dashboard</span>
-        </Link>
 
         <Link className='Vendas' to="/pagina-venda">
           <FaShop color="#FFF" size={24} />

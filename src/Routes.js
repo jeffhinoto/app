@@ -1,7 +1,7 @@
 // App.js
 
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Route, Navigate } from 'react-router-dom';
 
 import { AuthProvider, useAuth } from './authContext';
 import Login from './components/Login';

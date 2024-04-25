@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { auth } from '../firebase'; 
 import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth'; 
 import './Login.css'; 
-import { Link, Navigate } from 'react-router-dom'; 
+import { Link } from 'react-router-dom'; 
 import avatarImg from '../assets/logo.webp';
 
 const Login = () => {
@@ -44,7 +44,7 @@ const Login = () => {
     <div className="container-center">
       {!isLoggedIn && (
         <div className="login">
-          <img src={avatarImg} width="100px" height="100px"/>
+          <img src={avatarImg} width="100px" height="100px" alt='logo'/>
           <h2>Login</h2>
           <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
           <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />

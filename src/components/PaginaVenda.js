@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { firestore } from "../firebase";
+
 import {
   collection,
   getDocs,
@@ -56,7 +57,9 @@ const PaginaVenda = () => {
       console.error("Erro ao buscar produtos por categoria:", error);
     }
   };
-
+  const fechaModal = () =>{
+  setModalAberto(false);
+}
   const handleCategoriaClick = (categoriaId) => {
     setCategoriaSelecionada(categoriaId);
     fetchProdutosByCategoria(categoriaId);
@@ -178,9 +181,9 @@ const PaginaVenda = () => {
         <h3>Total R$ {valorTotal}</h3>
         {!carrinhoMinimizado && (
           <>
-            <button className="x" onClick={toggleCarrinhoSize}>
-              x
-            </button>
+            <div className="x" onClick={toggleCarrinhoSize}>
+            x
+            </div>
             <ul>
               {Object.values(carrinho).map((item) => (
                 <li key={item.id}>
@@ -226,6 +229,9 @@ const PaginaVenda = () => {
         {modalAberto && (
           <div className="modal">
             <div className="modal-content">
+            <div className="x" onClick={fechaModal}>
+              x
+            </div>
               <h2>Confirmação de Venda</h2>
               <div className="form-group">
                 <label htmlFor="metodoPagamento">Método de Pagamento:</label>

@@ -1,40 +1,56 @@
-import { useState } from 'react';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../firebase'; // Importe auth do Firebase
-import { Link, Navigate } from 'react-router-dom'; // Importe Link e Navigate do React Router
+import { useState, useEffect } from 'react';
+import { auth } from '../firebase'; 
+import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth'; 
+import './Login.css'; 
+import { Link, Navigate } from 'react-router-dom'; 
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Adicione um estado para controlar o login
+  const [isLoggedIn, setIsLoggedIn] = useState(false); 
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setIsLoggedIn(true);
+      }
+    });
+    return () => unsubscribe();
+  }, []);
 
   const handleLogin = async () => {
     try {
-      // Autenticação do usuário
       await signInWithEmailAndPassword(auth, email, password);
-      setIsLoggedIn(true); // Define isLoggedIn como true após o login
-      console.log("User logged in successfully!");
     } catch (error) {
       setError(error.message);
+      console.error("Error logging in:", error);
     }
   };
 
-  // Se o usuário estiver logado, redirecione para a página inicial
   if (isLoggedIn) {
-    return <Navigate to="/dashboard" />;
+    return (
+      <div className="container-center">
+        <div className="login">
+          <h2>Você já está logado</h2>
+          <p>Clique <Link to="/gestao-estoque">aqui</Link> para acessar a página de gestão de estoque.</p>
+        </div>
+      </div>
+    );
   }
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
-        <button type="submit">Login</button>
-      </form>
-      {error && <p>{error}</p>}
-      <p>Não tem uma conta? <Link to="/cadastro">Cadastre-se</Link></p>
+    <div className="container-center">
+      {!isLoggedIn && (
+        <div className="login">
+          <h2>Login</h2>
+          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
+          <button onClick={handleLogin}>Login</button>
+          {error && <p>{error}</p>}
+          <p>Não tem uma conta? <Link to="/cadastro">Cadastre-se</Link></p>
+        </div>
+      )}
     </div>
   );
 };

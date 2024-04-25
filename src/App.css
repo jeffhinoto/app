@@ -1,27 +1,42 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+/* Reset de estilos */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Definição de altura total para elementos principais */
+html, body, #root {
+  height: 100%;
+}
+
+/* Estilos gerais do corpo */
+body {
+  font: 14px;
+  font-family: sans-serif;
+  background-color: #121212;
+}
+
+/* Remoção do sublinhado padrão em links */
+a {
+  text-decoration: none;
+}
+
+/* Remoção do estilo de lista padrão */
+ul {
+  list-style: none;
+}
+
+/* Cursor de botões como ponteiro */
+button {
+  cursor: pointer;
+}
+
+/* Media query para telas menores que 700px */
+@media screen and (max-width: 700px) {
+  /* Ajuste de layout para o container principal */
+  .app-container {
+    display: flex;
+    flex-direction: column;
   }
-  
-  html, body, #root{
-    height: 100%;
-  }
-  
-  body{
-    font: 14px;
-    font-family: sans-serif;
-    background-color: #000;
-  }
-  
-  a{
-    text-decoration: none;
-  }
-  
-  ul{
-    list-style: none;
-  }
-  
-  button{
-    cursor: pointer;
-  }
+}

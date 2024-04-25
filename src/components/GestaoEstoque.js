@@ -106,19 +106,10 @@ const GestaoEstoque = () => {
 
   const handleCadastrarProduto = async () => {
     try {
-      let categoriaId;
+      let categoriaId = categoriaSelecionada;
       if (categoriaSelecionada === 'nova') {
         const novaCategoriaRef = await addDoc(collection(firestore, 'categorias'), { nome: novaCategoria });
         categoriaId = novaCategoriaRef.id;
-      } else {
-        // Busca o ID da categoria selecionada com base no nome
-        const categoria = categorias.find(cat => cat.nome === categoriaSelecionada);
-        if (categoria) {
-          categoriaId = categoria.id;
-        } else {
-          // Se não encontrar a categoria, retorna um erro
-          throw new Error('Categoria não encontrada.');
-        }
       }
 
       const novoProduto = {
@@ -145,12 +136,12 @@ const GestaoEstoque = () => {
   return (
     <div className="dashboard">
       <div className="filter-container">
-        <div>
+        <div className='busca'>
           <input type="text" value={buscaTermo} onChange={(e) => setBuscaTermo(e.target.value)} placeholder="Buscar produto..." />
         </div>
       </div>
-      <div>
-        <span>Filtrar por Categoria:</span>
+      <div className='categoria'>
+        <span>Filtrar por Categoria:  </span>
         <select value={filtroCategoria} onChange={(e) => setFiltroCategoria(e.target.value)}>
           <option value="">Todas</option>
           {categorias.map((categoria, index) => (
@@ -170,7 +161,7 @@ const GestaoEstoque = () => {
               setProdutoSelecionado(produto);
               setModalOpen(true);
             }}>Editar</button>
-            <button className='nao' onClick={() => abrirConfirmacaoExclusao(produto)}>Excluir</button>
+            
           </div>
         ))}
       </div>
@@ -212,7 +203,8 @@ const GestaoEstoque = () => {
             </div>
             <div>
               <button onClick={handleSalvarEdicao}>Salvar</button>
-              <button onClick={fecharModais}>Cancelar</button>
+              <button className='nao' onClick={() => abrirConfirmacaoExclusao(produtoSelecionado)}>Excluir</button>
+              <div className='x' onClick={fecharModais}>x</div>
             </div>
           </div>
         </div>
@@ -246,7 +238,7 @@ const GestaoEstoque = () => {
               <input type="number" value={quantidadeProduto} onChange={(e) => setQuantidadeProduto(parseInt(e.target.value))} />
             </div>
             <div className="form-group">
-              <label>Data de Validade:</label>
+              <label>Validade:</label>
               <input type="date" value={dataValidadeProduto} onChange={(e) => setDataValidadeProduto(e.target.value)} />
             </div>
             <div className="form-group">

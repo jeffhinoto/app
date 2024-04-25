@@ -1,83 +1,125 @@
-.sidebar{
-    width: 200px;
-    margin: 0;
-    padding: 0;
-    background-color: #181c2e;
-    height: 100vh;
-    overflow: auto;
-  }
-  
-  .sidebar div{
-    background-color: #181c2e;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: auto;
-  }
-  
-  .sidebar div{
-    padding-top: 30px;
-  }
-  
-  .sidebar div img {
+/* Estilos da barra lateral */
+.sidebar {
+  width: 200px;
+  margin: 0;
+  padding: 0;
+  background-color: #2c003e;
+  height: auto;
+  overflow: auto;
+}
+
+/* Estilos para o conteúdo dentro da barra lateral */
+.sidebar div {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: auto;
+  padding-top: 30px;
+}
+
+/* Estilos para as imagens dentro da barra lateral */
+.sidebar div img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+
+/* Estilos para informações do usuário */
+.user-info {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+/* Estilos para botões dentro da barra lateral */
+.user-info button {
+  max-height: 30px;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+/* Estilos para o link de logoff */
+.sidebar .logoff a {
+  width: 100%;
+  display: block;
+  padding: 16px;
+  display: flex;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7);
+  flex-direction: row;
+  align-items: center;
+  transition: ease-in-out 0.4s;
+}
+
+/* Estilos para links na barra lateral */
+.sidebar a {
+  display: block;
+  padding: 16px;
+  display: flex;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7);
+  flex-direction: row;
+  align-items: center;
+  transition: ease-in-out 0.4s;
+}
+
+/* Espaçamento entre o ícone e o texto dos links */
+.sidebar a svg {
+  margin-right: 0.5rem;
+}
+
+/* Efeito hover nos links */
+.sidebar a:hover {
+  background-color: #121212;
+  color: #fff;
+}
+
+/* Media queries para telas menores */
+@media screen and (max-width: 700px) {
+  /* Ajuste de layout para a barra lateral */
+  .sidebar {
     width: 100%;
     height: auto;
-    display: block;
-    margin: auto;
-  }
-  
-  .sidebar a {
-    display: block;
-    padding: 16px;
+    position: relative;
+    height: 50px;
     display: flex;
-    text-decoration: none;
-    color: rgba(255,255,255, 0.7);
     flex-direction: row;
-    align-items: center;
-    transition: ease-in-out 0.4s;
+    justify-content: space-evenly;
+    border-radius: 0 0 20px 20px;
   }
-  
-  .sidebar a svg{
-    margin-right: 0.5rem;
+
+  /* Ajuste de layout para logoff */
+  .sidebar .logoff {
+    display: flex;
+    align-items: flex-end;
   }
-  
-  .sidebar a:hover{
-    background-color: #121212;
-    color: #FFF;
+
+  /* Oculta o conteúdo da barra lateral */
+  .sidebar div {
+    display: none;
   }
-  
-  @media screen and (max-width: 700px){
-    .sidebar{
-      width: 30%;
-      height: auto;
-      position: relative;
-    }
-  
-    div.content{
-      margin-left: 0;
-    }
-  
-    .sidebar a{
-      float: left;
-    }
-  
-    .sidebar div{
-      display: none;
-    }
-  
-    .sidebar a svg{
-      display: none;
-    }
+
+  /* Oculta os ícones dos links */
+  .sidebar a span {
+    display: none;
   }
+}
+.sidebar a svg{
+  display: flex;
   
-  
-  @media screen and (max-width: 400px){
-    .sidebar a{
-      text-align: center;
-      float: none;
-    }
-    
-    .sidebar a svg{
-      display: none;
-    }
+}
+/* Media queries para telas ainda menores */
+@media screen and (max-width: 400px) {
+  /* Ajuste de layout para links */
+  .sidebar a {
+    text-align: center;
+    float: none;
   }
+
+  /* Oculta os ícones dos links */
+  .sidebar a span {
+    display: none;
+  }
+}
+

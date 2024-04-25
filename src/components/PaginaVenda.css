@@ -1,220 +1,304 @@
-/* PaginaVenda.css */
+/* Estilos para a página de venda */
 .pagina-venda {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  color: #fff;
+  background-color: #121212;
+  position: inherit;
+  overflow: hidden;
+  padding: 1px 16px;
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+}
+.checkout{
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  right: 10px !important;
+  bottom: 10px;
+}
+/* Estilos para os títulos na página de venda */
+.pagina-venda h2 {
+  margin: 0;
+}
+
+/* Estilos para as categorias na página de venda */
+.categorias {
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Estilos para os cards de categoria */
+.categoria-card {
+  width: 200px;
+  height: 100px;
+  padding: 10px;
+  background-color: #242424;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilos para a categoria selecionada */
+.categoria-card.selected {
+  background-color: #2c003e;
+}
+
+/* Estilos para os produtos na página de venda */
+.produtos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 20px;
+  overflow-y: auto;
+  margin-top: 40px;
+  flex: 1;
+  align-content: flex-start;
+}
+
+/* Estilos para o texto */
+.txt {
+  width: 300px;
+}
+
+/* Estilos para os cards de produto */
+.produto-card {
+  width: 160px;
+  padding: 20px;
+  background-color: #242424;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Estilos para os títulos dos produtos */
+.produto-card h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Estilos para os detalhes dos produtos */
+.produto-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+/* Estilos para o carrinho na página de venda */
+.carrinho {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  margin-top: 40px;
+  background-color: #333;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Estilos para os botões no carrinho */
+.carrinho button {
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #2c003e;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: solid;
+  border: none;
+}
+
+/* Estilos para o título do carrinho */
+.carrinho h3 {
+  margin: 0;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+/* Estilos para a lista no carrinho */
+.carrinho ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Estilos para os itens na lista do carrinho */
+.carrinho li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+/* Estilos para o botão de remover */
+.remover {
+  background-color: rgba(255, 0, 0,0.5) !important;
+  color: white;
+  border: none;
+  width: 20px;
+  height: 20px;
+  padding: 15px;
+  font: 0.7em sans-serif !important;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
     align-items: center;
-    padding: 20px;
-    color: #fff;
-    background-color: #121212;
-    position: inherit;
-    overflow: hidden;
-    padding: 1px 16px;
-    min-height: 100vh;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  
-  .pagina-venda h2 {
-    margin: 0;
-  }
-  
+}
+
+/* Estilos para os botões de diminuir e aumentar */
+.diminuir,
+.aumentar {
+  background-color: #444 !important;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilos para a quantidade */
+.quantidade {
+  font-size: 1.2rem;
+}
+
+/* Estilos para o modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilos para o conteúdo do modal */
+.modal-content {
+  background-color: #222;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 100%;
+  position: relative; /* Para posicionar o botão dentro do modal */
+}
+
+/* Estilos para o título do modal */
+.modal h2 {
+  margin: 0;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+/* Estilos para os botões no modal */
+.modal button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Estilos para os botões no modal (exceto o último) */
+.modal button:not(:last-child) {
+  margin-right: 10px;
+}
+
+/* Estilos para o grupo de formulários */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+/* Estilos para os labels nos formulários */
+.form-group label {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+/* Estilos para os selects nos formulários */
+.form-group select {
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #555;
+  width: 100%;
+}
+
+/* Estilos para os inputs do tipo número nos formulários */
+.form-group input[type="number"] {
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #555;
+  width: 100%;
+}
+
+/* Estilos para o botão de fechar o modal */
+.close-modal {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 3px;
+  background-color: #555;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* Media queries para telas menores */
+@media screen and (max-width: 600px) {
+  /* Ajuste de layout para as categorias */
   .categorias {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
-  }
-  
-  .categoria-card {
-    width: 200px;
-    height: 100px;
-    padding: 10px;
-    background-color: #444;
-    border-radius: 5px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .categoria-card.selected {
-    background-color: rgb(15, 112, 39);
-  }
-  
-  .produtos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     gap: 10px;
-    padding: 0 20px;
-    overflow-y: auto;
-    margin-top: 40px;
-    flex: 1;
-    align-content: flex-start;
-    
   }
-  .txt{
-    width: 300px;
-  }
-  .produto-card {
-    width: 160px;
-    padding: 20px;
-    background-color: #444;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    text-align: center;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  .produto-card h3 {
-    margin: 0;
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    text-align: center;
-  }
-  
-  .produto-card p {
-    margin: 0;
-    font-size: 0.9rem;
-    margin-bottom: 10px;
-  }
-  
-  .carrinho {
-    margin-top: 40px;
-    background-color: #333;
-    padding: 20px;
-    border-radius: 10px;
-    width: 100%;
-    max-width: 600px;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .carrinho button{
-    padding:20px;
+
+  /* Ajuste de layout para os cards de categoria */
+  .categoria-card {
+    width: auto;
+    height: auto;
+    background-color: #242424;
     border-radius: 5px;
-  }
-  .carrinho h3 {
-    margin: 0;
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-  }
-  
-  .carrinho ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .carrinho li {
+    cursor: pointer;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
-  
-  .remover {
-    background-color: red;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-  }
-  
-  .diminuir,
-  .aumentar {
-    background-color: #444;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-  }
-  
-  .quantidade {
-    font-size: 1.2rem;
-  }
-  
-  .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
     justify-content: center;
-    align-items: center;
   }
-  
-  .modal-content {
-    background-color: #222;
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 400px;
-    width: 100%;
-    position: relative; /* Para posicionar o botão dentro do modal */
+
+  /* Estilos para a categoria selecionada */
+  .categoria-card.selected {
+    background-color: #2c003e
   }
-  
-  .modal h2 {
-    margin: 0;
-    margin-bottom: 20px;
-    text-align: center;
-    font-size: 1.5rem;
-  }
-  
-  .modal button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .modal button:not(:last-child) {
-    margin-right: 10px;
-  }
-  
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-  }
-  
-  .form-group label {
-    color: #fff;
-    margin-bottom: 10px;
-  }
-  
-  .form-group select {
-    margin-bottom: 10px;
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #555;
-    width: 100%;
-  }
-  
-  .form-group input[type="number"] {
-    margin-bottom: 10px;
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #555;
-    width: 100%;
-  }
-  
-  .close-modal {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    padding: 3px;
-    background-color: #555;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 16px;
-    line-height: 1;
-  }
-  
+}

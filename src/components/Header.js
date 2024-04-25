@@ -3,7 +3,7 @@ import { Link, Navigate } from 'react-router-dom';
 import { FiSettings } from 'react-icons/fi';
 import { MdSpaceDashboard } from "react-icons/md";
 import { FaShop } from "react-icons/fa6";
-import avatarImg from '../assets/logo.png';
+import avatarImg from '../assets/logo.webp';
 import './header.css';
 import { auth } from '../firebase'; // Importe o módulo de autenticação do Firebase
 import { RiLogoutBoxRFill } from "react-icons/ri";

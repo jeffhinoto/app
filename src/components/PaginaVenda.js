@@ -132,7 +132,7 @@ const PaginaVenda = () => {
         });
       }
       console.log("Venda confirmada!");
-      toggleCarrinhoSize()
+      toggleCarrinhoSize();
       setModalAberto(false);
       setCarrinho({});
       setValorTotal(0);
@@ -178,32 +178,36 @@ const PaginaVenda = () => {
         <h3>Total R$ {valorTotal}</h3>
         {!carrinhoMinimizado && (
           <>
-          <button className="x" onClick={toggleCarrinhoSize}>
-            x
-          </button>
+            <button className="x" onClick={toggleCarrinhoSize}>
+              x
+            </button>
             <ul>
               {Object.values(carrinho).map((item) => (
                 <li key={item.id}>
-                  <div
-                    className="remover"
-                    onClick={() => removeFromCart(item.id)}
-                  >
-                    X
+                  <div className="infos">
+                    <div
+                      className="remover"
+                      onClick={() => removeFromCart(item.id)}
+                    >
+                      X
+                    </div>
+                    <span>{item.nome}</span>
                   </div>
-                  <span>{item.nome}</span>
-                  <button
-                    className="diminuir"
-                    onClick={() => decreaseQuantity(item.id)}
-                  >
-                    -
-                  </button>
-                  <span className="quantidade">{item.comprando}</span>
-                  <button
-                    className="aumentar"
-                    onClick={() => increaseQuantity(item.id)}
-                  >
-                    +
-                  </button>
+                  <div className="infos">
+                    <button
+                      className="diminuir"
+                      onClick={() => decreaseQuantity(item.id)}
+                    >
+                      -
+                    </button>
+                    <span className="quantidade">{item.comprando}</span>
+                    <button
+                      className="aumentar"
+                      onClick={() => increaseQuantity(item.id)}
+                    >
+                      +
+                    </button>
+                  </div>
                 </li>
               ))}
             </ul>

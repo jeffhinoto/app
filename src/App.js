@@ -22,7 +22,7 @@ function PrivateRoute({ element, ...rest }) {
 
 function App() {
   return (
-    <Router basename="/app">
+    <Router>
       <AuthProvider>
         <div className="app-container">
           <Header />

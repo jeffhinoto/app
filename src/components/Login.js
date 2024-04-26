@@ -50,7 +50,7 @@ const Login = () => {
           <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
           <button onClick={handleLogin}>Login</button>
           {error && <p>{error}</p>}
-          <p>Não tem uma conta? <Link to="/cadastro">Cadastre-se</Link></p>
+          <center><p>Não tem uma conta? <br/><b><u><Link to="/cadastro">Cadastre-se</Link></u></b></p></center>
         </div>
       )}
     </div>

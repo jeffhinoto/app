@@ -14,7 +14,6 @@
   background-repeat: no-repeat;
   background-size: cover;
   height: auto;
-  padding-top: 30px;
 }
 
 /* Estilos para as imagens dentro da barra lateral */
@@ -42,7 +41,6 @@
 /* Estilos para o link de logoff */
 .sidebar .logoff a {
   width: 100%;
-  display: block;
   padding: 16px;
   display: flex;
   text-decoration: none;
@@ -95,7 +93,7 @@
   /* Ajuste de layout para logoff */
   .sidebar .logoff {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
   }
 
   /* Oculta o conteúdo da barra lateral */

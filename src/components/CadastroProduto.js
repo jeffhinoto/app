@@ -29,21 +29,17 @@ const CadastroProduto = () => {
 
     try {
       if (novaCategoria) {
-        // Adiciona nova categoria ao banco de dados
         const categoriaDocRef = doc(collection(firestore, 'categorias'));
         await setDoc(categoriaDocRef, { nome: novaCategoria });
 
-        // Atualiza lista de categorias no estado
         setCategorias([...categorias, novaCategoria]);
       }
 
-      // Adicionar produto ao Firestore
       await addDoc(collection(firestore, 'produtos'), {
         nome: nome,
         categoria: categoriaSelecionada || novaCategoria
       });
 
-      // Limpar campos do formulário após o sucesso
       setNome('');
       setCategoriaSelecionada('');
       setNovaCategoria('');

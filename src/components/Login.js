@@ -46,9 +46,10 @@ const Login = () => {
         <div className="login">
           <img src={avatarImg} width="100px" height="100px" alt='logo'/>
           <h2>Login</h2>
+          <br/>
           <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
           <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
-          <button onClick={handleLogin}>Login</button>
+          <button className='button' onClick={handleLogin}>Login</button>
           {error && <p>{error}</p>}
           <center><p>Não tem uma conta? <br/><b><u><Link to="/cadastro">Cadastre-se</Link></u></b></p></center>
         </div>

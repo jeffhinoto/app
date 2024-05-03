@@ -203,7 +203,7 @@ const PaginaVenda = () => {
                     >
                       -
                     </button>
-                    <span className="quantidade">{item.comprando}</span>
+                    <input type="number" className="quantidade" value={item.comprando}></input>
                     <button
                       className="aumentar"
                       onClick={() => increaseQuantity(item.id)}

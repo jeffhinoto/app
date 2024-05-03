@@ -4,15 +4,15 @@
     align-items: center;
     padding: 20px;
     color: #fff;
-    background-color: #121212;
+    background-color: #333;
     position: inherit;
     overflow: hidden;
     padding: 1px 16px;
-    min-height: 100vh; /* Garante que o componente ocupe pelo menos 100% da altura da tela */
+    min-height: 100vh;
     min-width: (100vw-200px);
-    height: 100%; /* Define a altura do componente como 100% */
-    width: 100%; /* Define a largura do componente como 100% */
-    box-sizing: border-box; /* Mantém a largura e altura do componente incluindo padding e borda */
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
   }
   
   
@@ -20,7 +20,7 @@
     margin: 0;
   }
   .content-container{
-    background: #333;
+    background: #3333338e;
     width: 100%;
   }
   .dashboard .filter-container {
@@ -123,7 +123,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #222;
+    background-color: #222222cb;
     padding: 20px;
     border-radius: 5px;
     max-width: 400px;
@@ -202,6 +202,7 @@
     border: none;
     cursor: pointer;
     background-color: rgb(15, 112, 39);
+    z-index: 1;
   }
   
   .dashboard .toast-container {

@@ -118,7 +118,7 @@ const GestaoEstoque = () => {
         quantidade: parseInt(quantidadeProduto),
         dataValidade: dataValidadeProduto,
         ativo: ativoProduto,
-        categoria: categoriaId, // Agora o ID da categoria está sendo utilizado
+        categoria: categoriaId,
       };
 
       await addDoc(collection(firestore, 'produtos'), novoProduto);

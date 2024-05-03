@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, useLocation, Navigate } from 'react-router-dom';
 import { FiSettings } from 'react-icons/fi';
 import { FaShop } from "react-icons/fa6";
 import avatarImg from '../assets/logo.webp';
 import './header.css';
-import { auth } from '../firebase'; // Importe o módulo de autenticação do Firebase
+import { auth } from '../firebase';
 import { RiLogoutBoxRFill } from "react-icons/ri";
-
-
 
 const Header = () => {
   const [usuarioLogado, setUsuarioLogado] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
@@ -38,21 +37,20 @@ const Header = () => {
           <img src={avatarImg} alt="Foto do usuário" />
         </div>
 
-        <Link className='Vendas' to="/pagina-venda">
+        <Link className={location.pathname === "/pagina-venda" ? 'Vendas active' : 'Vendas'} to="/pagina-venda">
           <FaShop color="#FFF" size={24} />
           <span>Vendas</span>
         </Link>
 
-        <Link className='Estoque' to="/gestao-estoque">
+        <Link className={location.pathname === "/gestao-estoque" ? 'Estoque active' : 'Estoque'} to="/gestao-estoque">
           <FiSettings color="#FFF" size={24} />
          <span>Estoque</span>
         </Link>
-      <div className='logoff'>
-        <Link onClick={desconectarUsuario}>
-        <RiLogoutBoxRFill color="#FFF" size={24} />
-        <span>Sair</span>
+        
+          <Link className='exit' onClick={desconectarUsuario}>
+            <RiLogoutBoxRFill color="#FFF" size={24} />
+            <span>Sair</span>
           </Link>
-          </div>
       </div>
     )
   );

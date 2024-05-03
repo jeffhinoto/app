@@ -4,6 +4,7 @@ import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 import './Login.css'; 
 import { Link } from 'react-router-dom'; 
 import avatarImg from '../assets/logo.webp';
+import PaginaVenda from './PaginaVenda';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -30,16 +31,8 @@ const Login = () => {
   };
 
   if (isLoggedIn) {
-    return (
-      <div className="container-center">
-        <div className="login">
-          <h2>Você já está logado</h2>
-          <p>Clique <Link to="/gestao-estoque">aqui</Link> para acessar a página de gestão de estoque.</p>
-        </div>
-      </div>
-    );
+    return <PaginaVenda/>
   }
-
   return (
     <div className="container-center">
       {!isLoggedIn && (

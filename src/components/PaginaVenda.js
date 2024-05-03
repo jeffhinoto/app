@@ -10,7 +10,8 @@ import {
   addDoc,
 } from "firebase/firestore";
 import "./PaginaVenda.css";
-import { MdShoppingCartCheckout } from "react-icons/md";
+import { FaCartShopping } from "react-icons/fa6";
+
 
 const PaginaVenda = () => {
   const [categorias, setCategorias] = useState([]);
@@ -203,7 +204,7 @@ const PaginaVenda = () => {
                     >
                       -
                     </button>
-                    <input type="number" className="quantidade" value={item.comprando}></input>
+                    <input type="number" className="quantidade" value={item.comprando} readOnly></input>
                     <button
                       className="aumentar"
                       onClick={() => increaseQuantity(item.id)}
@@ -214,14 +215,14 @@ const PaginaVenda = () => {
                 </li>
               ))}
             </ul>
-            <button className="checkout" onClick={setModalAberto}>
-              <MdShoppingCartCheckout />
+            <button className="checkout2" onClick={setModalAberto}>
+              <FaCartShopping size={25} />
             </button>
           </>
         )}
         {carrinhoMinimizado ? (
           <button className="checkout" onClick={toggleCarrinhoSize}>
-            <MdShoppingCartCheckout />
+            <FaCartShopping />
           </button>
         ) : (
           ""
